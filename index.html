@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chá de Fraldas - Tassio & Família</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 20px; background-color: #fff0f5; }
+    h1 { color: #ff69b4; }
+    button {
+        background-color: #ff69b4; 
+        color: white; 
+        border: none; 
+        padding: 15px 30px;
+        margin: 10px;
+        border-radius: 8px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+    #qrcode { margin-top: 20px; }
+    p { font-size: 16px; }
+</style>
+</head>
+<body>
+
+<h1>Chá de Fraldas da Eva👶💖</h1>
+<p>Escolha a cota para contribuir via PIX para <b>Tassio Fonseca Feitosa</b></p>
+
+<button onclick="gerarPix(0.5)">½ Cota</button>
+<button onclick="gerarPix(1)">1 Cota</button>
+<button onclick="gerarPix(2)">2 Cotas</button>
+<button onclick="gerarPix(3)">3 Cotas</button>
+
+<div id="qrcode"></div>
+<p id="valor"></p>
+<p><small>Após escanear, confirme que o recebedor é <b>Tassio Fonseca Feitosa</b></small></p>
+
+<script>
+    const valorCota = 104.00; // valor de 1 cota
+    const chavePix = "03701945519"; // sua chave PIX
+    const nomeRecebedor = "Tassio Fonseca Feitosa"; // nome no PIX
+
+    function gerarPix(qtdCotas) {
+        let valor = valorCota * qtdCotas;
+        document.getElementById("valor").innerHTML = `Valor: R$ ${valor.toFixed(2)}`;
+        
+        // Payload PIX simplificado
+        const payload = `00020126580014BR.GOV.BCB.PIX01${chavePix.length.toString().padStart(2,"0")}${chavePix}52040000530398654${valor.toFixed(2).replace(".", "")}5802BR59${nomeRecebedor.length.toString().padStart(2,"0")}${nomeRecebedor}6009SAO PAULO62070503***6304`;
+
+        // Limpa QR Code anterior
+        document.getElementById("qrcode").innerHTML = "";
+        new QRCode(document.getElementById("qrcode"), {
+            text: payload,
+            width: 200,
+            height: 200
+        });
+    }
+</script>
+
+</body>
+</html>

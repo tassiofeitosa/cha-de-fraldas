@@ -18,7 +18,17 @@
         font-size: 18px;
         cursor: pointer;
     }
-
+    /*Botão com imagem lenço*/
+    .botao-lenço
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+    }
+    .botao-lenço img{
+        width: 100px;
+        height: auto;
+    }
     /* Botão com imagem da fralda */
     .botao-fralda {
         background-color: transparent;
@@ -27,7 +37,7 @@
         cursor: pointer;
     }
     .botao-fralda img {
-        width: 100px; /* tamanho P */
+        width: 100px; 
         height: auto;
     }
 
@@ -50,6 +60,11 @@
     <img src="fralda-p.png" alt="Fralda Tamanho P">
 </button>
 
+    <!-- Botão com imagem do lenço -->
+<button class="botao-lenço" onclick="gerarPix(1)">
+    <img src="lenço.png" alt="Lenço">
+</button>
+    
 <div id="qrcode"></div>
 <p id="valor"></p>
 <p><small>Após escanear, confirme que o recebedor é <b>Tassio Fonseca Feitosa</b></small></p>

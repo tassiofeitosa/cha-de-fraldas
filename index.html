@@ -41,6 +41,12 @@
         height: auto;
     }
 
+    .botao-container {
+        display: inline-block;
+        text-align: center;
+        margin: 10px;
+    }
+
     #qrcode { margin-top: 20px; }
     p { font-size: 16px; }
 </style>
@@ -50,15 +56,21 @@
 <h1>Chá de Fraldas da Eva👶💖</h1>
 <p>Escolha a cota para contribuir via PIX para <b>Tassio Fonseca Feitosa</b></p>
 
+
+    
 <button onclick="gerarPix(0.5)">½ Cota</button>
 <button onclick="gerarPix(1)">1 Cota</button>
 <button onclick="gerarPix(2)">2 Cotas</button>
 <button onclick="gerarPix(3)">3 Cotas</button>
 
 <!-- Botão com imagem da fralda -->
-<button class="botao-fralda" onclick="gerarPix(1)">
-    <img src="fralda-p.png" alt="Fralda Tamanho P">
-</button>
+
+<div class="botao-container">
+    <button class="botao-fralda" onclick="gerarPix(1)">
+        <img src="fralda-p.png" alt="Fralda Tamanho P">
+    </button>
+    <div>Fralda P</div>
+</div>  
 
     <!-- Botão com imagem do lenço -->
 <button class="botao-lenço" onclick="gerarPix(1)">
